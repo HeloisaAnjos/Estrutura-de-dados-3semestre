@@ -1,0 +1,195 @@
+Estrutura de dados
+
+Exercicio 1 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+struct Pessoa {
+    string nome;
+    string endereco;
+    string cpf;
+    int idade;
+};
+
+int main() {
+    
+    Pessoa pessoas[5];
+
+    
+    for (int i = 0; i < 5; ++i) {
+        cout << "Pessoa " << i+1 << ":" << endl;
+        cout << "Nome: ";
+        getline(cin, pessoas[i].nome);
+        cout << "Endereço: ";
+        getline(cin, pessoas[i].endereco);
+        cout << "CPF: ";
+        getline(cin, pessoas[i].cpf);
+        cout << "Idade: ";
+        cin >> pessoas[i].idade;
+        cin.ignore(); 
+    }
+
+    
+    cout << "\nDados das Pessoas:" << endl;
+    for (int i = 0; i < 5; ++i) {
+        cout << "Pessoa " << i+1 << ":" << endl;
+        cout << "Nome: " << pessoas[i].nome << endl;
+        cout << "Endereço: " << pessoas[i].endereco << endl;
+        cout << "CPF: " << pessoas[i].cpf << endl;
+        cout << "Idade: " << pessoas[i].idade << endl;
+        cout << endl;
+    }
+
+    return 0;
+}
+
+Exercicio 2
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+struct Animal {
+    string nome;
+    string especie;
+    int idade;
+    float peso;
+};
+
+
+typedef Animal ListaAnimais[10];
+
+int main() {
+    ListaAnimais listaAnimais;
+
+    
+    cout << "Digite os dados de 10 animais:" << endl;
+    for (int i = 0; i < 10; ++i) {
+        cout << "\nAnimal " << i+1 << ":" << endl;
+        cout << "Nome: ";
+        getline(cin, listaAnimais[i].nome);
+        cout << "Espécie: ";
+        getline(cin, listaAnimais[i].especie);
+        cout << "Idade: ";
+        cin >> listaAnimais[i].idade;
+        cout << "Peso (kg): ";
+        cin >> listaAnimais[i].peso;
+        cin.ignore(); 
+    }
+
+    
+    cout << "\nDados dos animais:" << endl;
+    for (int i = 0; i < 10; ++i) {
+        cout << "\nAnimal " << i+1 << ":" << endl;
+        cout << "Nome: " << listaAnimais[i].nome << endl;
+        cout << "Espécie: " << listaAnimais[i].especie << endl;
+        cout << "Idade: " << listaAnimais[i].idade << endl;
+        cout << "Peso (kg): " << listaAnimais[i].peso << endl;
+    }
+
+    return 0;
+}
+
+Exercicio 3
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+struct Endereco {
+    string rua;
+    string cidade;
+    string cep;
+};
+
+
+typedef Endereco TipoEndereco;
+
+int main() {
+    
+    TipoEndereco endereco;
+
+    
+    cout << "Insira as informacoes do endereco:" << endl;
+    cout << "Rua: ";
+    getline(cin, endereco.rua);
+    cout << "Cidade: ";
+    getline(cin, endereco.cidade);
+    cout << "CEP: ";
+    getline(cin, endereco.cep);
+
+    
+    cout << "\nEndereco inserido:" << endl;
+    cout << "Rua: " << endereco.rua << endl;
+    cout << "Cidade: " << endereco.cidade << endl;
+    cout << "CEP: " << endereco.cep << endl;
+
+    return 0;
+}
+
+Exercicio 4
+#include <iostream>
+using namespace std;
+
+// Typedef para um vetor de inteiros
+typedef int VetorInteiros[5];
+
+int main() {
+    // Declaração e inicialização de um vetor de 5 inteiros usando o typedef
+    VetorInteiros vetor = {1, 2, 3, 4, 5};
+
+    // Exibindo os valores do vetor na tela
+    cout << "Valores do vetor:" << endl;
+    for (int i = 0; i < 5; ++i) {
+        cout << vetor[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+Exercicio 5
+#include <iostream>
+using namespace std;
+
+enum Cores {
+    VERMELHO,
+    VERDE,
+    AZUL
+};
+
+typedef Cores TipoCor;
+
+int main() {
+    
+    TipoCor corEscolhida;
+
+    cout << "Escolha uma cor (0 - Vermelho, 1 - Verde, 2 - Azul): ";
+    int escolha;
+    cin >> escolha;
+
+    if (escolha >= 0 && escolha <= 2) {
+        corEscolhida = static_cast<TipoCor>(escolha);
+
+        switch (corEscolhida) {
+            case VERMELHO:
+                cout << "Cor escolhida: Vermelho" << endl;
+                break;
+            case VERDE:
+                cout << "Cor escolhida: Verde" << endl;
+                break;
+            case AZUL:
+                cout << "Cor escolhida: Azul" << endl;
+                break;
+        }
+    } else {
+        cout << "Escolha invalida!" << endl;
+    }
+
+    return 0;
+}
