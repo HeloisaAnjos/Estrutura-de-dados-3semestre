@@ -6,7 +6,6 @@ Exercicio 1
 
 using namespace std;
 
-
 struct Pessoa {
     string nome;
     string endereco;
@@ -18,7 +17,6 @@ int main() {
     
     Pessoa pessoas[5];
 
-    
     for (int i = 0; i < 5; ++i) {
         cout << "Pessoa " << i+1 << ":" << endl;
         cout << "Nome: ";
@@ -32,7 +30,6 @@ int main() {
         cin.ignore(); 
     }
 
-    
     cout << "\nDados das Pessoas:" << endl;
     for (int i = 0; i < 5; ++i) {
         cout << "Pessoa " << i+1 << ":" << endl;
@@ -55,7 +52,6 @@ Exercicio 2
 
 using namespace std;
 
-
 struct Animal {
     string nome;
     string especie;
@@ -63,12 +59,10 @@ struct Animal {
     float peso;
 };
 
-
 typedef Animal ListaAnimais[10];
 
 int main() {
     ListaAnimais listaAnimais;
-
     
     cout << "Digite os dados de 10 animais:" << endl;
     for (int i = 0; i < 10; ++i) {
@@ -84,7 +78,6 @@ int main() {
         cin.ignore(); 
     }
 
-    
     cout << "\nDados dos animais:" << endl;
     for (int i = 0; i < 10; ++i) {
         cout << "\nAnimal " << i+1 << ":" << endl;
@@ -106,13 +99,11 @@ Exercicio 3
 
 using namespace std;
 
-
 struct Endereco {
     string rua;
     string cidade;
     string cep;
 };
-
 
 typedef Endereco TipoEndereco;
 
@@ -120,7 +111,6 @@ int main() {
     
     TipoEndereco endereco;
 
-    
     cout << "Insira as informacoes do endereco:" << endl;
     cout << "Rua: ";
     getline(cin, endereco.rua);
@@ -129,7 +119,6 @@ int main() {
     cout << "CEP: ";
     getline(cin, endereco.cep);
 
-    
     cout << "\nEndereco inserido:" << endl;
     cout << "Rua: " << endereco.rua << endl;
     cout << "Cidade: " << endereco.cidade << endl;
