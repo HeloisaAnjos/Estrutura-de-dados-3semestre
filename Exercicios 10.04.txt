@@ -46,6 +46,9 @@ int main() {
     return 0;
 }
 
+
+
+
 Exercicio 2
 #include <iostream>
 #include <string>
@@ -94,6 +97,9 @@ int main() {
     return 0;
 }
 
+
+
+
 Exercicio 3
 #include <iostream>
 #include <string>
@@ -132,6 +138,10 @@ int main() {
     return 0;
 }
 
+
+
+
+
 Exercicio 4
 #include <iostream>
 using namespace std;
@@ -152,6 +162,10 @@ int main() {
 
     return 0;
 }
+
+
+
+
 
 Exercicio 5
 #include <iostream>
