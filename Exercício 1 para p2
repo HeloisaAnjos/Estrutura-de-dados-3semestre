@@ -1,0 +1,90 @@
+#include <iostream>
+#include <vector>
+#include <locale.h>
+
+using namespace std;
+
+class Pilha {
+private:
+    vector<int> elementos;
+
+public:
+    void inserir(int elemento) {
+        elementos.push_back(elemento);
+    }
+
+    void remover() {
+        if (!elementos.empty()) {
+            elementos.pop_back();
+        } else {
+            cout << "A pilha está vazia. Não é possível remover." << endl;
+        }
+    }
+
+    int topo() {
+        if (!elementos.empty()) {
+            return elementos.back();
+        } else {
+            cout << "A pilha está vazia." << endl;
+            return -1;
+        }
+    }
+
+    bool estaVazia() {
+        return elementos.empty();
+    }
+
+    int tamanho() {
+        return elementos.size();
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "portuguese") ;
+    Pilha pilha;
+    int escolha, elemento;
+
+    do {
+        cout << "Escolha uma operacao:" << endl;
+        cout << "1. Inserir elemento" << endl;
+        cout << "2. Remover o elemento do topo" << endl;
+        cout << "3. Verificar o elemento do topo" << endl;
+        cout << "4. Verificar se a pilha esta vazia" << endl;
+        cout << "5. Exibir o tamanho da pilha" << endl;
+        cout << "0. Sair" << endl;
+        cout << "Opcao: ";
+        cin >> escolha;
+
+        switch (escolha) {
+            case 1:
+                cout << "Digite o elemento a ser inserido: ";
+                cin >> elemento;
+                pilha.inserir(elemento);
+                break;
+            case 2:
+                pilha.remover();
+                break;
+            case 3:
+                cout << "Elemento do topo: " << pilha.topo() << endl;
+                break;
+            case 4:
+                if (pilha.estaVazia()) {
+                    cout << "A pilha está vazia." << endl;
+                } else {
+                    cout << "A pilha não está vazia." << endl;
+                }
+                break;
+            case 5:
+                cout << "Tamanho da pilha: " << pilha.tamanho() << endl;
+                break;
+            case 0:
+                cout << "Saindo..." << endl;
+                break;
+            default:
+                cout << "Opção inválida. Tente novamente." << endl;
+        }
+    } while (escolha != -1);
+
+    return 0;
+}
+
