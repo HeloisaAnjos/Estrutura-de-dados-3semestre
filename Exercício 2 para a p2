@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+int main() {
+    stack <int> pilha;
+    int numero;
+
+    cout << "Digite uma sequencia de numeros inteiros positivos (digite 0 para parar):" << endl;
+
+
+    do {
+        cout << "Digite um numero: ";
+        cin >> numero;
+        if (numero != 0) {
+            pilha.push(numero);
+        }
+    } while (numero != 0);
+
+
+    cout << "Numeros na ordem inversa:" << endl;
+    while (!pilha.empty()) {
+        cout << pilha.top() << endl;
+        pilha.pop();
+    }
+
+    return 0;
+}
