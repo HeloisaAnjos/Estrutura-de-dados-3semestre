@@ -1,0 +1,64 @@
+#include <iostream>
+#include <list>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+struct Funcionario {
+    string nome;
+    int idade;
+};
+
+bool comparaPorNome(const Funcionario& a, const Funcionario& b) {
+    return a.nome < b.nome;
+}
+
+int main() {
+    list<Funcionario> listaFuncionarios;
+
+    int numFuncionarios;
+    cout << "Quantos funcionarios serao cadastrados? ";
+    cin >> numFuncionarios;
+
+
+    for (int i = 0; i < numFuncionarios; ++i) {
+        Funcionario novoFuncionario;
+        cout << "Digite o nome do funcionario " << i+1 << ": ";
+        cin >> novoFuncionario.nome;
+        cout << "Digite a idade do funcionario " << i+1 << ": ";
+        cin >> novoFuncionario.idade;
+        listaFuncionarios.push_back(novoFuncionario);
+    }
+
+
+    if (listaFuncionarios.empty()) {
+        cout << "A lista de funcionarios esta vazia.\n";
+        return 0;
+    }
+
+
+    cout << "\nLista de funcionarios na ordem de cadastro:\n";
+    for (const auto& funcionario : listaFuncionarios) {
+        cout << "Nome: " << funcionario.nome << ", Idade: " << funcionario.idade << endl;
+    }
+
+
+    listaFuncionarios.sort(comparaPorNome);
+
+
+    cout << "\nLista de funcionarios ordenada por nome:\n";
+    for (const auto& funcionario : listaFuncionarios) {
+        cout << "Nome: " << funcionario.nome << ", Idade: " << funcionario.idade << endl;
+    }
+
+
+    cout << "\nLista de funcionarios em ordem reversa:\n";
+    for (auto it = listaFuncionarios.rbegin(); it != listaFuncionarios.rend(); ++it) {
+        cout << "Nome: " << it->nome << ", Idade: " << it->idade << endl;
+    }
+
+    cout << "\nNumero total de funcionarios cadastrados: " << listaFuncionarios.size() << endl;
+
+    return 0;
+}
